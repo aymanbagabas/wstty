@@ -6,8 +6,8 @@
 </p>
 
 *wstty* is a small tool that sets or reports various console related settings on
-*Windows systems. It is meant to be a replacement for the `stty` coreutils
-*command on Unix systems.
+Windows systems. It is meant to be a replacement for the `stty` coreutils
+command on Unix systems.
 
 
 ## Usage
