@@ -23,6 +23,10 @@ func cmd(cmd *cobra.Command, args []string) (err error) {
 		switch arg {
 		case "a":
 			return all(cmd)
+		case "v", "version":
+			cmd.Printf("wstty version %s\n", Version)
+		case "h", "help":
+			return cmd.Usage()
 		case "raw":
 			return raw(on)
 		case "cooked":
