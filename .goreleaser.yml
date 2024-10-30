@@ -17,11 +17,6 @@ builds:
       - amd64
       - arm64
       - "386"
-    ignore:
-      - goos: windows
-        goarch: arm64
-      - goos: windows
-        goarm: "7"
 
 archives:
   - format_overrides:
