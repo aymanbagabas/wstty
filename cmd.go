@@ -22,17 +22,17 @@ func cmd(cmd *cobra.Command, args []string) (err error) {
 		arg := strings.TrimPrefix(arg, "-")
 		switch arg {
 		case "a":
-			return all(cmd)
+			err = errors.Join(err, all(cmd))
 		case "v", "version":
 			cmd.Printf("wstty version %s\n", Version)
 		case "h", "help":
 			return cmd.Usage()
 		case "raw":
-			return raw(on)
+			err = errors.Join(err, raw(on))
 		case "cooked":
-			return cooked(on)
+			err = errors.Join(err, cooked(on))
 		case "sane":
-			return sane()
+			err = errors.Join(err, sane())
 		case "cp", "icp", "ocp":
 			if len(args) < i+2 {
 				return fmt.Errorf("missing code page")
