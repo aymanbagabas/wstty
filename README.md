@@ -115,3 +115,7 @@ This corresponds to the `DISABLE_NEWLINE_AUTO_RETURN` flag.
 ### **olvb**
 
 This corresponds to the `ENABLE_LVB_GRID_WORLDWIDE` flag.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file
