@@ -7,6 +7,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var Version = "unknown"
+
 const usage = `Usage: wstty [-a][-][mode...]
 
   -a            Show all modes and Windows build numbers
@@ -42,6 +44,7 @@ Output modes:
 `
 
 func init() {
+	rootCmd.Version = Version
 	rootCmd.DisableFlagParsing = true
 	rootCmd.DisableFlagsInUseLine = true
 	rootCmd.SetUsageTemplate(usage)
