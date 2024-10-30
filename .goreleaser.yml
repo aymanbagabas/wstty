@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=https://goreleaser.com/static/schema-pro.json
+
+version: 2
+
+project_name: wstty
+env:
+  - GO111MODULE=on
+  - CGO_ENABLED=0
+before:
+  hooks:
+    - go mod tidy
+builds:
+  - ldflags: -s -w -X main.ProjectName={{ .ProjectName }} -X main.Version=v{{ .Version }} -X main.CommitSHA={{ .ShortCommit }}
+    goos:
+      - windows
+    goarch:
+      - amd64
+      - arm64
+      - "386"
+    ignore:
+      - goos: windows
+        goarch: arm64
+      - goos: windows
+        goarm: "7"
+
+archives:
+  - format_overrides:
+      - goos: windows
+        format: zip
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- .Version }}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- with .Arm}}v{{ . }}{{ end }}
+    files:
+      - README*
+      - LICENSE*
+
+scoops:
+  - repository:
+      owner: aymanbagabas
+      name: scoop-bucket
+      token: "{{ .Env.SCOOP_TAP_GITHUB_TOKEN }}"
+    commit_author:
+      name: "Ayman Bagabas"
+      email: "ayman.bagabas@gmail.com"
+    homepage: "https://github.com/aymanbagabas/wstty"
+    description: "Windows stty replacement"
+    license: MIT
+
+checksum:
+  name_template: "checksums.txt"
+
+source:
+  enabled: true
+
+snapshot:
+  name_template: "{{ incpatch .Version }}-snapshot"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
