@@ -38,7 +38,7 @@ scoops:
   - repository:
       owner: aymanbagabas
       name: scoop-bucket
-      token: "{{ .Env.PERSONAL_ACCESS_TOKEN }}"
+      token: "{{ .Env.SCOOP_TAP_GITHUB_TOKEN }}"
     commit_author:
       name: "Ayman Bagabas"
       email: "ayman.bagabas@gmail.com"
