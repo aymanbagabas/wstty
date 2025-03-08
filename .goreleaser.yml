@@ -21,7 +21,7 @@ builds:
 archives:
   - format_overrides:
       - goos: windows
-        format: zip
+        formats: [ zip ]
     name_template: >-
       {{ .ProjectName }}_
       {{- .Version }}_
@@ -38,7 +38,7 @@ scoops:
   - repository:
       owner: aymanbagabas
       name: scoop-bucket
-      token: "{{ .Env.SCOOP_TAP_GITHUB_TOKEN }}"
+      token: "{{ .Env.PERSONAL_ACCESS_TOKEN }}"
     commit_author:
       name: "Ayman Bagabas"
       email: "ayman.bagabas@gmail.com"
@@ -53,7 +53,7 @@ source:
   enabled: true
 
 snapshot:
-  name_template: "{{ incpatch .Version }}-snapshot"
+  version_template: "{{ incpatch .Version }}-snapshot"
 
 changelog:
   sort: asc
