@@ -9,6 +9,21 @@ _wstty_ is a small tool that sets or reports various console related settings on
 Windows systems. It is meant to be a replacement for the `stty` coreutils
 command on Unix systems.
 
+## Installation
+
+### Go Install
+
+```sh
+go install github.com/aymanbagabas/wstty@latest
+```
+
+### Scoop (Windows)
+
+```sh
+scoop bucket add aymanbagabas https://github.com/aymanbagabas/scoop-bucket.git
+scoop install aymanbagabas/wstty
+```
+
 ## Usage
 
 ```shell
