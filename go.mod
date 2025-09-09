@@ -1,10 +1,10 @@
 module github.com/aymanbagabas/wstty
 
-go 1.23.2
+go 1.24.0
 
 require (
 	github.com/spf13/cobra v1.10.1
-	golang.org/x/sys v0.35.0
+	golang.org/x/sys v0.36.0
 )
 
 require (
